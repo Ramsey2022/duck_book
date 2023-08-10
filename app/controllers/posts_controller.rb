@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.content = params[:post][:content]
     @post.author = current_user
-    @post.datetime = Datetime.now
+    @post.datetime = DateTime.now
 
     respond_to do |format|
       if @post.save

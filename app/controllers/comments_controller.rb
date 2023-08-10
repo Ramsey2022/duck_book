@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    post = Post.find(params[:id])
+    post = Post.find(params[:post_id])
     comment = post.comments.build(
-      author_id = current_user.id,
+      author_id: current_user.id,
       content: params[:comment][:content]
     )
     if comment.save
