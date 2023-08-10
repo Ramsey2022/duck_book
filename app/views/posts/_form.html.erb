@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "new_post" do %>
+  <%= form_with model: Post.new, class: "post-form" do |form| %>
+      <div class="field">
+        <%= form.label :content, "Whats on your mind?", class: 'post-form-title' %><br>
+        <%= form.text_area :content %>
+      </div>
+      <div class="field"><%= form.submit %></div>
+  <% end %>
+<% end %>

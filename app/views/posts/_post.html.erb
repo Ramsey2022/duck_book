@@ -1,0 +1,26 @@
+<div id="<%= post.id %>" class="post" data-controller="post">
+    <% if post.author == current_user %>
+        <%= link_to post_path(post.id), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Delete post?"
+        } do %>
+            <%= image_tag 'icons/delete.svg', class: 'icon' %>
+        <% end %>
+    <% end %>
+    <div class="horizontal-container">
+        <div>
+            <%= link_to post.author.username, user_path(post.author.id), class: 'author' %>
+        </div>
+        <p class="post-time"><%= post.datetime.to_fs(:short) %></p>
+    </div>
+    
+    <p class="text"><%= post.content %></p>
+    <%= render "comments/form", post: post %>
+    <div class="comments-container" id="comments-<%= post.id %>" data-post-target="comments"><%= render post.comments.reverse %></div>
+    <hr data-post-target="show">
+    <% if post.comments.none? %>
+        <p class="show-comments" data-post-target="show" data-action="click->post#show">Post a first comment.</p>
+    <% else %>
+        <p class="show-comments" data-post-target="show" data-action="click->post#show">Show comments.</p>
+    <% end %>
+</div>
