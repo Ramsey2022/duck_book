@@ -1,0 +1,23 @@
+<nav>
+    <%= link_to root_path do %>
+        <%= image_tag 'icons/logo.svg', class: 'logo' %>
+    <% end %>
+    <div class="navbar-links">
+        
+        <% if current_user %>
+            <div>
+                <%= link_to user_path(current_user.id) do %>
+                    <p><%= current_user.username %></p>
+                <% end %>
+            </div>
+        <% end %>
+        <%= link_to notifications_path do %>
+            <%= image_tag 'icons/bell.svg', class: "icon" %>
+            <p>Notifications</p>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
+            <%= image_tag 'icons/logout.svg', class: "icon" %>
+            <p>Log out</p>
+        <% end %>
+    </div>
+</nav>

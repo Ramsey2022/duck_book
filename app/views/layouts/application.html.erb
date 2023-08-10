@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DuckBook</title>
+    <title>duck_book</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <style><%= yield :stylesheets %></style>
+    <%= turbo_frame_tag "modal" %>
+    <%= render partial: "shared/navbar" %>
+    <div class="main-container"><%= yield %></div>
+    <%= render partial: "shared/footer" %>
   </body>
 </html>
