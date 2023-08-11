@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password]
-    devise_parameter_sanitizer.permit :sign_in, keys: %i[username password]
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[username email]
+    devise_parameter_sanitizer.permit :sign_in, keys: %i[username]
   end
 end
