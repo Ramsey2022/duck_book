@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "modal" do %>
+    <div class="modal" >
+        <div>
+            <p>Liked by</p>
+            <%= link_to "#", data: {
+                controller: "modals",
+                action: "modals#close"
+            }, class: "cancel-btn" do %>
+                <%= image_tag 'icons/exit.svg', class: 'like-btn' %>
+            <% end %>
+        </div>
+        <hr>
+        <div class="modal-list">
+            <% @post.likes.each do |like| %>
+                <%= link_to user_path(like.user.id), data: { turbo_frame: "_top" }, class: "modal-link" do %>
+                    <p><%= like.user.username %></p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+<% end %>

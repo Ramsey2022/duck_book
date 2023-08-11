@@ -15,6 +15,7 @@
     </div>
     
     <p class="text"><%= post.content %></p>
+    <%= render "likes/likes", post: post %>
     <%= render "comments/form", post: post %>
     <div class="comments-container" id="comments-<%= post.id %>" data-post-target="comments"><%= render post.comments.reverse %></div>
     <hr data-post-target="show">

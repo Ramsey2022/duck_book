@@ -1,0 +1,5 @@
+<% begin %>
+    <%= turbo_stream.replace "like-#{@post.id}", partial: "likes/likes", locals: { post: @post } %>
+<% rescue %>
+    <% controller.redirect_to root_path %>
+<% end %>
