@@ -1,0 +1,17 @@
+<div class="vertical-container-buttons">
+    <div class="top-page-buttons">
+        <%= link_to "Back", :back %>
+        <%= button_to "Clear all", clear_notifications_path %>
+    </div>
+    <% if @notifications.any? %>
+        <div class="notifications-container">
+            <% current_user.notifications.each do |notification| %>
+                <div class="notification-container">
+                    <%= render notification %>
+                </div>
+            <% end %>
+        </div>
+    <% else %>
+        <p>No new notifications.</p>
+    <% end %>
+</div>

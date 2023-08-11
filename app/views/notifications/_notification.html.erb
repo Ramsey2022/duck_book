@@ -1,0 +1,17 @@
+<%= link_to delete_notification_path(notification.id), data: { turbo_method: :delete } do %>
+    <%= image_tag 'icons/exit.svg', class: "icon" %>
+<% end %>
+
+<% if notification.notification_type == "like" %>
+    <p>
+        <%= link_to notification.actor.username, user_path(notification.actor.id) %>
+        liked your
+        <%= link_to "post.", post_path(notification.like.post) %>
+    </p>
+<% elsif notification.notification_type == "comment"%>
+    <p>
+        <%= link_to notification.actor.username, user_path(notification.actor.id) %>
+        commented on your 
+        <%= link_to "post.", post_path(notification.comment.post) %>
+    </p>
+<% end %>
