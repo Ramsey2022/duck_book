@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show]
 
+  get 'notifications', to: 'notifications#index'
+
+
 end

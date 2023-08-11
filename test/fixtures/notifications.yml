@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actor: MyString
+  notifier: MyString
+  type: 
+  friendship: MyString
+  comment: MyString
+  like: MyString
+
+two:
+  actor: MyString
+  notifier: MyString
+  type: 
+  friendship: MyString
+  comment: MyString
+  like: MyString
