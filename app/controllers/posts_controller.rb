@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def likes_list
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new
     @post.content = params[:post][:content]
@@ -27,11 +31,23 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    destroy_posts_notifications(@post)
+    @post.destroy    
 
     respond_to do |format|
       format.turbo_stream { render :delete }
     end
   end
 
+  private
+
+  def destroy_posts_notifications(post)
+    post.comments.each do |comment|
+      Notification.where(comment_id: comment.id).destroy_all
+    end
+
+    post.likes.each do |like|
+      Notification.where(like_id: like.id).destroy_all
+    end
+  end
 end
