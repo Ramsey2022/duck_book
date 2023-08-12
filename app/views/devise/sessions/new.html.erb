@@ -16,7 +16,7 @@
 <div class="login-container">
   <div>
     <%= image_tag 'icons/logo.svg', class: 'login-logo' %>
-    <p>One pond to rule them all.</p>
+    <p>One pond to rule them all</p>
   </div>
   <div class="login-inputs">
     <p>Log in</p>
@@ -44,11 +44,5 @@
     <% end %>
 
     <%= render "devise/shared/links" %>
-
-    <div class="login-omniauth-container">
-      <%= button_to user_github_omniauth_authorize_path, data: { turbo: false } do %>
-        <%= image_tag("login-with-github.png") %>
-      <% end %>
-    </div>
   </div>
 </div>
