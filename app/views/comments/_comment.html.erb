@@ -1,5 +1,12 @@
 <p>
     <div>
+        <% if comment.author.image.attached? %>
+            <%= image_tag comment.author.image, class: "profile-picture-small" %>
+        <% elsif comment.author.avatar_url %>
+            <%= image_tag comment.author.avatar_url, class: "profile-picture-small" %>
+        <% else %>
+            <%= image_tag 'icons/duck.svg', class: "profile-picture-small" %>
+        <% end %>
         <%= link_to comment.author.username, user_path(comment.author.id) %>
     </div> 
     <%= comment.content %>

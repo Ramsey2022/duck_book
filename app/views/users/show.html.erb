@@ -15,6 +15,13 @@
     <% end %>
     <div class="profile-title">
         <div>
+        <% if @user.image.attached? %>
+                <%= image_tag @user.image, class: "profile-picture" %>
+            <% elsif @user.avatar_url %>
+                <%= image_tag @user.avatar_url, class: "profile-picture" %>
+            <% else %>
+                <%= image_tag 'icons/duck.svg', class: "profile-picture" %>                
+            <% end %>
             <h1><%= @user.username %></h1>
         </div>
         <%= render 'friendships/friend_status', user: @user%>

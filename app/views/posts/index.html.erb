@@ -1,3 +1,10 @@
+<% content_for :stylesheets do %>
+    .main-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+<% end %>
+
 <div class="posts-with-form">
     <%= render 'form' %>
     <div id="posts" class="posts-container"><%= render @posts %></div>

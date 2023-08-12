@@ -1,4 +1,11 @@
 <div>
+    <% if friend_request.user.image.attached? %>
+        <%= image_tag friend_request.user.image, class: "profile-picture-small" %>
+    <% elsif friend_request.user.avatar_url %>
+        <%= image_tag friend_request.user.avatar_url, class: "profile-picture-small" %>
+    <% else %>
+        <%= image_tag 'icons/duck.svg', class: "profile-picture-small" %>
+    <% end %>
     <%= link_to friend_request.user.username, user_path(friend_request.user.id) %>
 </div>
 <div>

@@ -9,11 +9,20 @@
     <% end %>
     <div class="horizontal-container">
         <div>
+            <% if post.author.image.attached? %>
+                <%= image_tag post.author.image, class: "profile-picture-small" %>
+            <% elsif post.author.avatar_url %>
+                    <%= image_tag post.author.avatar_url, class: "profile-picture-small" %>
+            <% else %>
+                <%= image_tag 'icons/duck.svg', class: "profile-picture-small" %>
+            <% end %>
             <%= link_to post.author.username, user_path(post.author.id), class: 'author' %>
         </div>
         <p class="post-time"><%= post.datetime.to_fs(:short) %></p>
     </div>
-    
+    <% if post.image.attached? %>
+        <%= image_tag post.image, class: 'post-img' %>
+    <% end%>
     <p class="text"><%= post.content %></p>
     <%= render "likes/likes", post: post %>
     <%= render "comments/form", post: post %>

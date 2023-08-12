@@ -1,7 +1,15 @@
 <%= link_to delete_notification_path(notification.id), data: { turbo_method: :delete } do %>
     <%= image_tag 'icons/exit.svg', class: "icon" %>
 <% end %>
-
+<div>
+    <% if notification.actor.image.attached? %>
+        <%= image_tag notification.actor.image, class: "profile-picture-small" %>
+    <% elsif notification.actor.avatar_url %>
+        <%= image_tag notification.actor.avatar_url, class: "profile-picture-small" %>
+    <% else %>
+        <%= image_tag 'icons/duck.svg', class: "profile-picture-small" %>
+    <% end %>
+</div>
 <% if notification.notification_type == "like" %>
     <p>
         <%= link_to notification.actor.username, user_path(notification.actor.id) %>

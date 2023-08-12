@@ -14,6 +14,13 @@
             <% @user.friends.each do |user| %>
                 <% next if !user.friends.include?(@user)%>
                 <%= link_to user_path(user.id), data: { turbo_frame: "_top" }, class: "modal-link" do %>
+                <% if user.image.attached? %>
+                        <%= image_tag user.image, class: "profile-picture-small" %>
+                    <% elsif user.avatar_url %>
+                        <%= image_tag user.avatar_url, class: "profile-picture-small" %>
+                    <% else %>
+                        <%= image_tag 'icons/duck.svg', class: "profile-picture-small" %>
+                    <% end %>
                 <p><%= user.username %></p>
                 <% end %>
             <% end %>
