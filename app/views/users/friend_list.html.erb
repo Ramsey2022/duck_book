@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "modal" do %>
+    <div class="modal" >
+        <div>
+            <p>Friend list</p>
+            <%= link_to "#", data: {
+                controller: "modals",
+                action: "modals#close"
+            }, class: "cancel-btn" do %>
+                <%= image_tag 'icons/exit.svg', class: 'like-btn' %>
+            <% end %>
+        </div>
+        <hr>
+        <div class="modal-list">
+            <% @user.friends.each do |user| %>
+                <% next if !user.friends.include?(@user)%>
+                <%= link_to user_path(user.id), data: { turbo_frame: "_top" }, class: "modal-link" do %>
+                <p><%= user.username %></p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+<% end %>

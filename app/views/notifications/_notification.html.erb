@@ -14,4 +14,10 @@
         commented on your 
         <%= link_to "post.", post_path(notification.comment.post) %>
     </p>
+<% else %>
+    <p>
+        <%= link_to notification.actor.username, user_path(notification.actor.id) %>
+        sent you a
+        <%= link_to "friend request.", friend_requests_path %>
+    </p>
 <% end %>

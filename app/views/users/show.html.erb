@@ -1,0 +1,62 @@
+<div class="profile-container">
+    <% if @user.id == current_user.id %>
+        <div class="account-options-container">
+            <p>Account Options</p>
+            <hr>
+            <%= link_to friend_requests_path, class: "horizontal-container" do %>
+                <%= image_tag 'icons/friend.svg', class: 'icon' %>
+                <p>Friend requests</p>
+            <% end %>
+            <%= link_to edit_user_registration_path, class: "horizontal-container" do %>
+                <%= image_tag 'icons/cog.svg', class: 'icon' %>
+                <p>Settings</p>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="profile-title">
+        <div>
+            <h1><%= @user.username %></h1>
+        </div>
+        <%= render 'friendships/friend_status', user: @user%>
+    </div>
+
+    <div class="friends-link">
+        <%= link_to friend_list_path(@user.id), data: { turbo_frame: "modal" } do %>
+            <p class="friends-status"><%= @user.friendships.where(status: "friends").count %> Friends</p>
+        <% end %>
+    </div>
+
+    <div data-controller="profile" style="width:100%;">
+        <div class="posts-buttons-container">
+            <div class="profile-posts-buttons">
+                <%= button_tag "Posts", data: { action: "profile#posts", profile_target: "posts_btn" } %>
+                <%= button_tag "Liked posts", data: { action: "profile#liked_posts", profile_target: "liked_btn" } %>
+                <%= button_tag "Commented posts", data: { action: "profile#commented_posts", profile_target: "commented_btn" } %>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <div id="posts" class="posts-container" data-profile-target="posts">
+            <% if @user.posts.any? %>
+                <%= render @user.posts.reverse %>
+            <% else %>
+                <p>User has no posts yet.</p>
+            <% end %>
+            </div>
+            <div class="posts-container" data-profile-target="liked_posts">
+            <% if @user.liked_posts.any? %>
+                <%= render @user.liked_posts.reverse %>
+            <% else %>
+                <p>User has no liked posts yet.</p>
+            <% end %>
+            </div>
+            <div class="posts-container" data-profile-target="commented_posts">
+            <% if @user.commented_posts.any? %>
+                <%= render @user.commented_posts.reverse %>
+            <% else %>
+                <p>User has no commented posts yet.</p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @friend_status = get_friend_status
   end
 
+  def friend_list
+    @user = User.find(params[:id])
+  end
+
   private
 
   def get_friend_status

@@ -1,0 +1,16 @@
+<div class="vertical-container-buttons">
+    <div class="top-page-buttons">
+        <%= link_to "Back", :back %>
+    </div>
+    <% unless @incoming_requests.nil? %>
+        <div class="notifications-container">
+            <% @incoming_requests.each do |friend_request| %>
+                <div class="friend-request-container">
+                    <%= render partial: "friendships/friend_request", locals: { friend_request: friend_request } %>
+                </div>
+            <% end %>
+        </div>
+    <% else %>
+        <p>No incoming friend requests.</p>
+    <% end %>
+</div>
