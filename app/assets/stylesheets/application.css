@@ -648,3 +648,78 @@ nav .icon {
   gap: 15px;
   align-items: center;
 }
+
+.notifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification-container {
+  background-color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+  border-radius: 10px;
+  width: 500px;
+  gap: 10px;
+  padding: 25px 18px;
+}
+
+.notification-container a {
+  text-decoration: none;
+  color: white;
+}
+
+.notification-container .icon {
+  position: absolute;
+  height: 24px;
+  top: 6px;
+  right: 6px;
+}
+
+.notification-container .icon:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.vertical-container-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.top-page-buttons {
+  display: flex;
+  justify-content: end;
+  width: 500px;
+  gap: 20px;
+}
+
+.top-page-buttons a {
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background-color: grey;
+}
+
+.top-page-buttons a:hover {
+  background-color: rgb(143, 138, 138);
+}
+
+.top-page-buttons button {
+  background-color: grey;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.top-page-buttons button:hover {
+  cursor: pointer;
+  background-color: rgb(143, 138, 138);
+}
