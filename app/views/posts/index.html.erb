@@ -10,3 +10,35 @@
     <%= render 'form' %>
     <div id="posts" class="posts-container"><%= render @posts %></div>
 </div>
+
+<div class="sidebar">
+    <div class="new-users">
+        <p>New users</p>
+        <hr>
+        <% @new_users.each do |user| %>
+            <%= link_to user_path(user.id) do %>
+                <% if user.image.attached? %>
+                    <%= image_tag user.image, class: "profile-picture-small" %>
+                <% elsif user.avatar_url %>
+                    <%= image_tag user.avatar_url, class: "profile-picture-small" %>
+                <% else %>
+                    <%= image_tag 'icons/duck.svg', class: "profile-picture-small" %>
+                <% end %>
+                <p><%= user.username %></p>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="new-users">
+        <% if @incoming_requests.none? %>
+            <p>No incoming friend requests.</p>
+        <% elsif @incoming_requests.one? %>
+            <%= link_to friend_requests_path do %>
+                <p>1 incoming friend request.</p>
+            <% end %>
+        <% else %>
+            <%= link_to friend_requests_path do %>
+                <p><%= @incoming_requests.count %> incoming friend requests.</p>
+            <% end %>
+        <% end %>
+    </div>
+</div>

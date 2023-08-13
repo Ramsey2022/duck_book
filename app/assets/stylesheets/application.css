@@ -558,7 +558,7 @@ nav .icon {
   width: 40%;
   display: flex;
   gap: 20px;
-  justify-content: end;
+  justify-content: center;
 }
 
 .profile-posts-buttons button {
@@ -825,4 +825,45 @@ nav .icon {
 
 .back-btn:hover {
   background-color: rgb(143, 138, 138);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.new-users {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 320px;
+  padding: 25px 40px;
+  border-radius: 15px;
+  background-color: var(--green);
+}
+
+.new-users p:first-child {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.new-users hr {
+  border-top: 1px solid black;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+.new-users a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 4px;
+}
+
+.new-users a:hover {
+  text-decoration: underline;
 }

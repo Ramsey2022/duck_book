@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.order(datetime: :desc).first(5)
     @incoming_requests = Friendship.where(friend_id: current_user.id).where(status: 'pending')
+    @new_users = User.last(5).reverse
   end
 
   def show
