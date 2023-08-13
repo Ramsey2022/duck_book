@@ -82,7 +82,7 @@ nav a {
 }
 
 .login-container p {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .login-inputs {
@@ -721,5 +721,108 @@ nav .icon {
 
 .top-page-buttons button:hover {
   cursor: pointer;
+  background-color: rgb(143, 138, 138);
+}
+
+.user-registration-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 550px;
+  gap: 20px;
+  background-color: var(--charcoal);
+  border-radius: 20px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.user-registration-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-registration-container .field {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.user-registration-container .field label {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.user-registration-container .field input[type="text"], .user-registration-container .field input[type="email"], .user-registration-container .field input[type="password"] {
+  width: 100%;
+  outline: none;
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.user-registration-container input[type="file"]::file-selector-button {
+  background-color: grey;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 8px 20px;
+  font-size: 16px;
+}
+
+.user-registration-container input[type="file"]::file-selector-button:hover {
+  opacity: 0.6;
+}
+
+.user-registration-container input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.user-registration-container .field input[type="text"]:focus ,.user-registration-container .field input[type="email"]:focus, .user-registration-container .field input[type="password"]:focus {
+  transition: 0.3s;
+  box-shadow: 0px 0px 3px 0px black;
+}
+
+.user-registration-container input[type="submit"] {
+  width: 100%;
+  background-color: grey;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 0;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.user-registration-container .back-btn {
+  position: absolute;
+  top: 0;
+  right: -120px;
+  background-color: grey;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 8px 16px;
+  font-size: 18px;
+}
+
+.user-registration-container .errors {
+  font-size: 16px;
+}
+
+.user-registration-container li {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.user-registration-container h2 {
+  font-size: 22px;
+  color: white;
+}
+
+.back-btn:hover {
   background-color: rgb(143, 138, 138);
 }
