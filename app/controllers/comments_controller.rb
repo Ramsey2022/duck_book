@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       @comment = comment
 
       unless current_user.id == @post.author.id
-        Notification.create (
+        Notification.create(
           notification_type: 'comment',
           actor_id: current_user.id,
           notifier_id: @post.author.id,

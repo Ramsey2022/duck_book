@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     @post.content = params[:post][:content]
     @post.author = current_user
     @post.datetime = DateTime.now
+    @post.image = params[:post][:image]
 
     respond_to do |format|
       if @post.save
