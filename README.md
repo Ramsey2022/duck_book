@@ -1,10 +1,5 @@
 # Duck_book
 
-## Live Project
-
-You can try it out [here](https://duck-book-b3cc562963fa.herokuapp.com/) via Heroku.
-Username: test Password: password
-
 ## Screenshots
 <p>
   <img src="img/duck-book-home.png" alt="duck_book login" width="250" height="200">
@@ -14,12 +9,7 @@ Username: test Password: password
 
 
 ## About
-
 Duck_book was created based on The Odin Project's final project for building a [Facebook Clone](https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project).
-
-This is my third iteration. The first version was clunky, but functional. The second version was mainly focusing on clean code and adding turbo for smooth functionality. The third is what you see here.
-
-I learned alot building this project. I mostly furthered my knowledge of associations and using turbo. I also learned how to use ActiveStorage and how to login through Devise with a third-party app. If I had to change anything, I would have made notifications polymorphic rather then using foreign keys. However, this is the most complex project I've worked on so far and I'm very happy with how it turned out.
 
 ## Features
 
